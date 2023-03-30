@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+/*Button style reference wesite https://getcssscan.com/css-buttons-examples */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+              
+        body{
+            height:100vh;
+            width: 100vw;
+            background-color: black;
+            
+            /* background-image :url("static/img/e-comerse.webp"); */
+            /* load static in the first postiion line number 1
+             */
+            text-decoration: aliceblue;
+             background-repeat: no-repeat;
+             background-size: cover;
+             /* position: relative */
+             color: white;
+             font-family:'Courier New', Courier, monospace;
+             font-size: 11.5px;
+            
+            }
+        
+    h1{ text-align: center;
+    }
+
+
+
+    div.Trading_table {position: absolute;
+                        top:10%;
+                        left:30%;
+                        /* background-color: rgb(49, 207, 115); */
+                    }
+   div.trade_form_table  table,td ,th,tr{
+
+    border:1px solid rgb(0, 255, 255) ;
+    border-collapse: collapse;
+   }
+
+   div.status_table{
+    position: absolute;
+    left:10%;
+    bottom:20%
+   }
+
+   div.nifty_option_data_table{
+    position: absolute;
+    top:30%;
+    left:1%;
+   }
+   .trade_form_table{ border-collapse: collapse;}
+   
+   .table_nifty_option{ border-collapse: collapse;}
+
+   div.status_table table td,th,tr{
+    border-collapse: collapse;
+    border:1px solid rgb(184, 233, 50) ;
+
+   }
+   .OI_change_data{
+    color: aqua;
+   }
+
+
+   .PE_buy_button{
+    position: relative;
+    top:-60%;
+    /* left:40px */
+}
+    
+    .CE_buy_button{
+    position: relative;
+    /* left:200px */
+   }
+   
+   .PE_buy_button button {
+
+    background-color: #f80707;
+  border: 0;
+  border-radius: 56px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  outline: 0;
+  padding: 16px 21px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+   }
+
+   .PE_buy_button button :before {
+  background-color: initial;
+  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+  border-radius: 125px;
+  content: "";
+  height: 50%;
+  left: 4%;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  transition: all .3s;
+  width: 92%;
+   }
+
+   .PE_buy_button button:hover {
+  box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    .PE_buy_button button {
+    padding: 16px 48px;
+  }
+}
+
+
+
+
+   .CE_buy_button button {
+    
+  background-color: hsl(135, 98%, 49%);
+  border: 0;
+  border-radius: 56px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  outline: 0;
+  padding: 16px 21px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+   }
+
+   .CE_buy_button button :before {
+  background-color: initial;
+  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+  border-radius: 125px;
+  content: "";
+  height: 50%;
+  left: 4%;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  transition: all .3s;
+  width: 92%;
+   }
+
+   .CE_buy_button button:hover {
+  box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    .CE_buy_button button {
+    padding: 16px 48px;
+  }
+}
+    </style>
+</head>
+<body>
+    <h1>This is  a  trading  test page 
+</h1>
+
+    <form align="center" method="POST" action="{% url 'symbol_token_data' %}"
+    enctype="multipart/form-data">
+        {% csrf_token %}
+ 
+        <td colspan="2"><button type="submit">Get symbol & Token</button></td>
+        
+    </form>
+  
+    
+    
+    <div class="Trading_table">
+
+    <table class="trade_form_table"> 
+    <form align="center" method="POST" action="{% url 'trading_fun' %}"
+    enctype="multipart/form-data">
+        {% csrf_token %} 
+        <tr>
+            <td>Trading Symbol:</td> <td><input type="text" name="Trad_sym" required></td>
+        </tr>
+        <tr>
+            <td>price: </td><td><input type ="text" name="price"></td>  
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><button type="submit">exicute</button></td>
+        </tr>
+     </form>
+    </table>
+
+    </div>
+
+    <div class="status_table">
+    <table> 
+        <tr>
+    <td>{{data_set.data1}}</td><td>{{data_set.data2}}</td><td>{{data_set.data3}}</td>
+    <td>{{data_set2.data4}}</td><td>{{data_set2.data5}}</td><td>{{data_set2.data6}}</td>
+        </tr>
+    </table>
+    </div>
+
+<div class="nifty_option_data_table">
+<table class="table_nifty_option" width="100%">
+<form align="center" method="POST" action="{% url 'nifty_option_data' %}"
+enctype="multipart/form-data" >
+    {% csrf_token %}
+<!-- <div class="container" style="overflow-x:auto;"> -->
+    <tr>
+        <th>
+    <select name="expiry_date" method="POST" required>
+        <!-- <select name="cars" id="cars" required> -->
+
+        <option  selected class=""  required>__ Select Date __</option>
+        
+        <!-- {% for key,value in data.items %}
+        <option value="{{ value }}">{{ value }}</option>
+    {% endfor %} -->
+        <!-- <option value="">TEST</option> -->
+        
+    </select>
+</th>
+
+    <tr>
+    <th colspan="2"><button type="submit" value="submit">NIFTY option</button></th>
+
+</tr>
+                <!-- <th></th>
+                <th>
+                    <div class="nifty_spot">
+                    {{nifty_spot}}
+                    </div>
+                </th>
+                <th>difference In OI </th> -->
+                <!-- <th><div class =OI_change_data>
+                    <h3>
+                        {{OI_difference}}
+                    </h3>
+                </div> -->
+                <!-- </th> -->
+            </tr>
+            <!-- <tr>
+               <th>Type</th>
+               <th>strikePrice</th>
+               <th>expiryDate</th>
+                <th>underlying</th> -->
+               <!-- <th>identifier</th> -->
+               <!-- <th>openInterest</th>
+               <th>chnge_in_OI</th>
+               <th>pchange_OI</th>
+               <th>ttalTradedVol</th>
+               <th>implVolatility</th> 
+               <th>lastPrice</th>
+               <th>change</th>
+               <th>pChange</th>
+               <th>totalBuyQty</th>
+               <th>totalSellQty</th>
+               <th>bidQty</th>
+               <th>bidprice</th>
+               <th>askQty</th>
+               <th>askPrice</th> -->
+               <!-- <th>underlyingValue</th> -->
+           </tr>
+           <!-- {% if d %}   -->
+           <!-- {% for i in d %} -->
+           <tr>
+               <!-- <td>{{i.instrumentType}}</td>
+               <td>{{i.strikePrice}}</td>
+               <td>{{i.expiryDate}}</td> -->
+               <!-- <td>{{i.underlying}}</td> -->
+               <!-- <td>{{i.identifier}}</td> -->
+               <!-- <td>{{i.openInterest}}</td>
+               <td>{{i.changeinOpenInterest}}</td>
+               <td>{{i.pchangeinOpenInterest}}</td>
+               <td>{{i.totalTradedVolume}}</td>
+               <td>{{i.impliedVolatility}}</td>
+               <td>{{i.lastPrice}}</td>
+               <td>{{i.change}}</td>
+               <td>{{i.pChange}}</td>
+               <td>{{i.totalBuyQuantity}}</td>
+               <td>{{i.totalSellQuantity}}</td>
+               <td>{{i.bidQty}}</td>
+               <td>{{i.bidprice}}</td>
+               <td>{{i.askQty}}</td>
+               <td>{{i.askPrice}}</td>
+               <td>{{i.underlyingValue}}</td> -->
+           </tr>
+          
+           {% endfor %}
+            <tr>
+                <!-- <th colspan="6"></th> -->
+                
+                <!-- <th colspan="2"> -->
+                    <!-- <div class ="CE_buy_button"> -->
+                        <!-- <button type="submit">CE Buy</button> -->
+                    <!-- </div> -->
+                <!-- </th> -->
+                <!-- <th colspan="3">
+                    <div class="PE_buy_button">  
+                        <button type="submit">PE Buy</button>
+                    </div>
+                 </th> -->
+            </tr> 
+           <!-- {% endif %} -->
+       
+</form>
+</table>
+</div>
+   
+</body>
+</html>
+ 

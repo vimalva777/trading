@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.topnav {
+    overflow: hidden;
+    background-color: #0e85ee;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: rgb(205, 250, 25);
+  }
+  
+  .topnav a.instru {
+    background-color: #04AA6D;
+    color: white;
+  }
+  div.taget_instru_table table td,th,tr{
+    border-collapse: collapse;
+    border:1px solid rgb(26, 28, 23) ;
+
+   }
+   .Mood_analizer_table{ border-collapse: collapse;}
+      </style>
+<body>
+    <div class="topnav">
+        <a class="active" href="{% url 'nifty_option_data' %}">Home</a>
+        <a class="instru" href="{% url 'instructions' %}">Instructions</a>
+        <a href="{% url 'order_data' %}">Order data</a>
+        <a href="#about">About</a>
+      </div>
+
+      <div class="taget_instru_table">
+    <form align="center" method="POST" action="{% url 'instru_data_post' %}"
+    enctype="multipart/form-data">
+        {% csrf_token %}
+    
+    
+    <table>
+        <tr>
+        <th colspan="2">
+            Instructions
+        </th>
+        </tr>
+        <tr>
+            <td><label>Daily Target Amount</label></td><td><input type ="text" name="Day_target"></td>
+        </tr>
+        <tr>
+            <td><label>Weekly Target</label></td><td><input type="text" name="weekly_target"></td>
+        </tr>
+        <tr>
+            <td><labeL>Trading Plans</labeL> </td><td><input type="text" name="trd_planes"></td>
+        </tr>
+       
+        <tr>
+            <td colspan="2"><input type="submit"></td>
+        </tr>
+    </table>
+</form>
+</div>
+<div>
+<form align="center" method="POST" action="{% url 'mood_thought_data_post' %}"
+enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+<div class="Mood_analizer"></div>
+<table class="Mood_analizer_table">
+    <tr>
+    <th colspan="2">
+        Mood and Mental Analizer
+    </th>
+    </tr>
+    <tr>
+        <td><label>Mood</label></td><td><input type ="text" name="Mood"></td>
+    </tr>
+    <tr>
+        <td><label>Market Codition</label></td><td><input type="text" name="Market"></td>
+    </tr>
+    <tr>
+        <td><labeL>Preparation</labeL> </td><td><input type="text" name="prep"></td>
+    </tr>
+    <tr>
+        <td><labeL>Thoght Process</labeL> </td><td><input type="text" name="thoght"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit"></td>
+    </tr>
+</table>
+</form>
+</div>
+</body>
+</html>

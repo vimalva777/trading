@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selected option data</title>
+    <style>
+
+/*Button style reference wesite https://getcssscan.com/css-buttons-examples */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+              
+        body{
+            height:100vh;
+            width: 100vw;
+            background-color: black;
+            
+            /* background-image :url("static/img/e-comerse.webp"); */
+            /* load static in the first postiion line number 1
+             */
+            text-decoration: aliceblue;
+             background-repeat: no-repeat;
+             background-size: cover;
+             /* position: relative */
+             color: white;
+             font-family:'Courier New', Courier, monospace;
+             font-size: 11.5px;
+            
+            }
+        
+    h1{ text-align: center;
+    }
+
+
+   
+    div.Trading_table {position: absolute;
+                        top:10%;
+                        left:30%;
+                        /* background-color: rgb(49, 207, 115); */
+                    }
+   div.trade_form_table  table,td ,th,tr{
+
+    border:1px solid rgb(0, 255, 255) ;
+    border-collapse: collapse;
+   }
+
+   div.status_table{
+    position: absolute;
+    left:10%;
+    bottom:20%
+   }
+   div.Dii_fii_data_div{
+    position: absolute;
+    top:10% ;
+    left:35%
+   }
+   div.symmbol_token_button { position: absolute;
+                            top:10%;
+                            left:90%}
+  
+   div.nifty_option_data_table{
+    position: absolute;
+    top:30%;
+    left:1%;
+   }
+   div.target_table_div{
+        position: absolute;
+        top:10%;
+        left:1%;
+   }
+   div.Choosen_expiry_OI_VOL_table{
+        position :absolute;
+        top:18%;
+        left:43%
+   }
+   div.DWCPF_link {
+    position:absolute ;
+    top:15%;
+    left:80%
+   }
+
+   .trade_form_table{ border-collapse: collapse;}
+   .table_nifty_option{ border-collapse: collapse;}
+   .Order_details {border-collapse: collapse;}
+   .target_table{border-collapse: collapse;}
+   .fii_dii_data_table{border-collapse: collapse}
+   .OI_VOL_table{border-collapse: collapse}
+   div.status_table table td,th,tr{
+    border-collapse: collapse;
+    border:1px solid rgb(184, 233, 50) ;
+
+   }
+   .OI_change_data{
+    color: aqua;
+   }
+
+
+   .PE_buy_button{
+    position: relative;
+    top:-60%;
+    /* left:40px */
+}
+    
+    .CE_buy_button{
+    position: relative;
+    /* left:200px */
+   }
+   
+   
+   .PE_buy_button button {
+
+background-color: #f80707;
+border: 0;
+border-radius: 56px;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+font-size: 18px;
+font-weight: 600;
+outline: 0;
+padding: 16px 21px;
+position: relative;
+text-align: center;
+text-decoration: none;
+transition: all .3s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+}
+
+.Squre_Off_button button {
+
+background-color: #07d0f8;
+border: 0;
+border-radius: 56px;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+font-size: 18px;
+font-weight: 600;
+outline: 0;
+padding: 16px 21px;
+position: relative;
+text-align: center;
+text-decoration: none;
+transition: all .3s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;}
+
+.Squre_Off_button button :before {
+background-color: initial;
+background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+border-radius: 125px;
+content: "";
+height: 50%;
+left: 4%;
+opacity: .5;
+position: absolute;
+top: 0;
+transition: all .3s;
+width: 92%;
+}
+
+.Squre_Off_button button:hover {
+box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    .PE_buy_button button {
+    padding: 16px 48px;
+  }
+}
+
+
+
+
+   .CE_buy_button button {
+    
+  background-color: hsl(135, 98%, 49%);
+  border: 0;
+  border-radius: 56px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  outline: 0;
+  padding: 16px 21px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+   }
+
+   .CE_buy_button button :before {
+  background-color: initial;
+  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+  border-radius: 125px;
+  content: "";
+  height: 50%;
+  left: 4%;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  transition: all .3s;
+  width: 92%;
+   }
+
+   .CE_buy_button button:hover {
+  box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  transform: scale(1.05);}
+
+@media (min-width: 768px) {
+    .CE_buy_button button {
+    padding: 16px 48px;
+  }
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #0e85ee;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: rgb(205, 250, 25);
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="{% url 'nifty_option_data' %}">Home</a>
+        <a href="{% url 'instructions' %}">Instruction</a>
+        <a href="{% url 'order_data' %}">Order data</a>
+        <a href="#about">About</a>
+      </div>
+      
+
+    <div class ="symmbol_token_button">
+    <form align="center" method="POST" action="{% url 'symbol_token_data' %}"
+    enctype="multipart/form-data">
+        {% csrf_token %}
+ 
+        <td colspan="2"><button type="submit">Get symbol & Token</button></td>
+    </form>
+    </div>
+    <!-- <script>
+        alert('{{rslt}}')
+    </script> -->
+    
+<!-- 
+    <div class="status_table">
+    <table> 
+        <tr>
+    <td>{{data_set.data1}}</td><td>{{data_set.data2}}</td><td>{{data_set.data3}}</td>
+    <td>{{data_set2.data4}}</td><td>{{data_set2.data5}}</td><td>{{data_set2.data6}}</td>
+        </tr>
+    </table> -->
+    </div>
+
+<div class="nifty_option_data_table">
+<table class="table_nifty_option" width="100%">
+<form align="center" method="POST" action="{% url 'option_data_refresh' %}"
+enctype="multipart/form-data" >
+    {% csrf_token %}
+    
+        <p>  {{ c_time }}</p>
+
+    <!-- </select> -->
+           <tr>
+                <th></th>
+                <th>
+                    <div class="nifty_spot">
+                    {{nifty_spot}}
+                    </div>
+                </th>
+                <th>difference In OI </th>
+                <th><div class =OI_change_data>
+                    <h3>
+                        {{OI_difference}}
+                    </h3>
+                </div>
+                </th>
+                <th colspan="2"><button type="submit" id="refresh" value="submit">Refresh</button></th>
+            </tr>
+            <tr>
+               <th>Type</th>
+               <th>strikePrice</th>
+               <th>expiryDate</th>
+               <!-- <th>underlying</th> -->
+               <!-- <th>identifier</th> -->
+               <th>openInterest</th>
+               <th>chnge_in_OI</th>
+               <th>pchange_OI</th>
+               <th>ttalTradedVol</th>
+               <th>implVolatility</th> 
+               <th>lastPrice</th>
+               <th>change</th>
+               <th>pChange</th>
+               <th>totalBuyQty</th>
+               <th>totalSellQty</th>
+               <th>bidQty</th>
+               <th>bidprice</th>
+               <th>askQty</th>
+               <th>askPrice</th>
+               <!-- <th>underlyingValue</th> -->
+           </tr>
+           <!-- {% if d %}   -->
+           {% for i in d %}
+           <tr>
+               <td>{{i.instrumentType}}</td>
+               <td>{{i.strikePrice}}</td>
+               <td>{{i.expiryDate}}</td>
+               <!-- <td>{{i.underlying}}</td> -->
+               <!-- <td>{{i.identifier}}</td> -->
+               <td>{{i.openInterest}}</td>
+               <td>{{i.changeinOpenInterest}}</td>
+               <td>{{i.pchangeinOpenInterest}}</td>
+               <td>{{i.totalTradedVolume}}</td>
+               <td>{{i.impliedVolatility}}</td>
+               <td>{{i.lastPrice}}</td>
+               <td>{{i.change}}</td>
+               <td>{{i.pChange}}</td>
+               <td>{{i.totalBuyQuantity}}</td>
+               <td>{{i.totalSellQuantity}}</td>
+               <td>{{i.bidQty}}</td>
+               <td>{{i.bidprice}}</td>
+               <td>{{i.askQty}}</td>
+               <td>{{i.askPrice}}</td>
+               <!-- <td>{{i.underlyingValue}}</td> -->
+           </tr>
+          
+           {% endfor %}
+            </form>
+            <tr>
+                <th colspan="6"></th>
+                
+                <form align="center" method="POST" action="{% url 'NIFTY_CE_buy' %}"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                <th colspan="2">
+                    <div class ="CE_buy_button">
+                        <button type="submit">CE Buy</button>
+                    </div>
+                </th>
+                </form>
+                <form align="center" method="POST" action="{% url 'symbol_token_data' %}"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                </form>
+                
+                <th colspan="3">
+                <form align="center" method="POST" action="{% url 'NIFTY_PE_buy' %}"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="PE_buy_button">  
+                        <button type="submit">PE Buy</button>
+                    </div>
+                 </th>
+                </form>
+
+            </tr>
+            <tr>
+                <th colspan="18">
+                    <form align="center" method="POST" action="{% url 'square_off' %}"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="Squre_Off_button">  
+                        <button type="submit">Squre Off</button>
+ 
+                </th>
+            </tr>
+           <!-- {% endif %} -->
+       
+</form>
+</table>
+</div>
+<div class="Dii_fii_data_div">
+    <table  class="fii_dii_data_table">
+        <tr>
+            <th>category</th><th> date</th><th>buyValue</th><th>sellValue</th><th> netValue</th><th>Total chang in Cr</th>
+        </tr>
+        
+        {% for i in dii_fii_data %}
+
+        <tr>
+            <td>{{i.category}}</td><td>{{i.date}}</td><td>{{i.buyValue}}</td><td>{{i.sellValue}}</td><td>{{i.netValue}}</td>
+        {% endfor %}
+             <td rowspan="2" align="center">{{net_dii_fii}}</td>
+        </tr>
+    </table>
+</div>
+
+<div class="target_table_div">
+    <table class="target_table">
+        <tr>
+            <th></th><th> Daily </th><th> Weekly </th>
+        </tr>
+        <tr>
+           <td>Target</td> <td align="center">{{ d_trgt }}</td><td align="center">{{ week_trgt}}</td>
+        </tr>
+        <tr>
+            <td>Achived</td><td align="center">{{td_PL }}</td><td align="center">{{ wk_PL}}</td>
+        </tr>
+    <table>
+    <table>
+        <tr>
+            <th>Trading plans</th>
+        </tr>
+        <tr>
+            <td>{{i.trading_plans}}</td>
+        </tr>
+        
+    </table>
+        
+</div>
+
+<div class="Choosen_expiry_OI_VOL_table">
+    <table class="OI_VOL_table">
+            
+        <tr>
+           <th>Data</th> <th> CE </th><th> PE </th> <th>difference</th>
+        </tr>
+        <tr>
+            {% for i in expiry_OI_VOL %}
+
+            <td align="center">{{i.Data}}</td><td align="center">{{i.CE}}</td><td align="center">{{i.PE}}</td><td align="center">{{i.Diff}}</td>
+        </tr>
+        {% endfor %}
+
+    <table>
+
+    </div>
+
+<div class ="DWCPF_link">
+    <p><a href=https://in.tradingview.com/chart/aHPam5Ci/?symbol=NSE%3ANIFTY>Link text</a></p>
+</div>
+    <script>
+        var check = true;
+
+        function refresh(){
+            if(check == false)
+            {
+                $('#refresh').click()
+
+            }
+        }
+
+        setInterval(refresh, 1000);
+        </script>
+</body>
+</html>
+ 
